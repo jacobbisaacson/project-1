@@ -1,18 +1,54 @@
 console.log("project 1");
 
+
+class Mole {
+	constructor() {
+
+	}
+}
+
+
+
 const game = {
 
-// 	scorePlayerOne = 0,
-// 	scorePlayerTwo = 0,
-// 	timerIntervalID = null,
-// 	timeElapsed = 0,
+	// scorePlayerOne = 0,
+	// scorePlayerTwo = 0,
+	// timerIntervalID = null,
+	// timeElapsed = 0,
+	  intervalID: null, 
+	  timeElapsed: 359,
 
+  startTimer: function() {
+    this.printTime()
+    this.intervalID = setInterval(() => {
+      this.timeElapsed++
+      this.printTime()
+    }, 1000)    
+  }, 
 
-// 	start: function() {
-// 	// start game/main timer -- the 30 second timer that each player's turn will have
-// 	// call next function -- should be "showMole"
+  stopTimer: function() {
+    clearInterval(this.intervalID)
+  }, 
 
-// 	},
+  printTimer: function() {
+    const seconds = this.timeElapsed
+    let mm = Math.floor(seconds/60)
+    let ss = seconds - (mm * 60)
+    if(ss < 10) {
+      ss = "0" + ss
+    }
+    console.log(`${mm}:${ss}`);
+  },
+
+	start: function() {
+		score = 0
+		scoreBoard.textContent = score
+		timesOut = false
+		scoreBoard.classList.remove('add')
+		startScreen.classList.add('hide')
+		startTimer()
+		// showMole()
+	}
 
 // 	showMole: function() {
 // 	// mole image appears in random box in the container
@@ -48,42 +84,31 @@ const game = {
   // listeners   ////
 
 
-const holes = document.querySelectorAll('.hole');
-const scoreBoard = document.querySelector('.score');
-const moles = document.querySelectorAll('.mole');
-const btnStart = document.querySelector('button');
-const startScreen = document.querySelector('.start-screen');
-const showScore = document.querySelector('.show-score');
+// moles.forEach(mole => {
+//   mole.addEventListener('click', wack);
+// });
+
+// btnStart.addEventListener('click', start);
+
+
+// // holes = document.querySelectorAll('.hole')
+// scoreBoard = document.querySelector('.score')
+// // moles = document.querySelectorAll('.mole')
+// // btnStart = document.querySelector('button')
+// startScreen = document.querySelector('.start-screen')
+// // showScore = document.querySelector('.show-score')
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//// LISTENERS ////
-// const holes = document.querySelectorAll('.hole')
-// const scoreBoard = document.querySelectorAll('.scoreBoard')
-// const moles = document.querySelectorAll('.mole')
-// const button = document.querySelectorAll('button')
 
 // mole.addEventListener('click', ___) // or on.('click', event)
+
+
+
+
+
+
+
+
+
+
