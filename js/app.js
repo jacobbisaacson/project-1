@@ -10,10 +10,12 @@ class Mole {
 
 
 const game = {
-
-
+		moles: document.querySelector('.mole'),
+		scoreBoard: document.querySelector('.score'),
         intervalID: null,
         timeElapsed: 0,
+        timesUp: false,
+        score: 0,
 
         startTimer: function() {
             this.printTimer()
@@ -42,7 +44,26 @@ const game = {
         printValues: function() {
         	const timer = $('#timer')
         	timer.text($`{this.timeElapsed}`)
+        },
+
+        wack: function(event) {
+        	if(!timesUp) {
+        		scoreBoard.classList.add('add')
+        		score++
+        		scoreBoard.textContent = score
+        	}
+        },
+
+        start: function() {
+        	scoreBoard.textContent = this.score
+        	scoreBoard.classList.remove('add')
         }
+    }
+
+// this.moles.forEach(mole => {
+// 	mole.addEventListener('click', wack)
+// })
+
 
         // start: function() {
         //     score = 0
@@ -80,9 +101,6 @@ const game = {
 // 	checkValidWack: function() {
 
 // 	},
-
-	
-}
 
 
   // listeners   ////
