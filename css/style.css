@@ -27,8 +27,29 @@ h1 {
     border: 5px solid gold;
 }
 
+.game {
+  width: 600px;
+  height: 400px;
+/*  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;*/
+}
 
+.score-board {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
 
+.score {
+  display: inline-block;
+  font-size: 40px;
+  background: lightpink;
+  padding: 10px;
+  border-radius: 10px;
+  /*box-shadow: 1px rgba(0, 0, 0, 0.5);*/
+
+}
 
 
 
