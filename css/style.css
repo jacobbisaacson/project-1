@@ -35,22 +35,39 @@ h1 {
 	margin: 0 auto;*/
 }
 
-.score-board {
+/*.score-board {
     position: absolute;
     top: 10%;
     left: 10%;
-}
+}*/
 
-.score {
-    display: inline-block;
-    font-size: 40px;
+#player-one-score {
+	display: inline-block;
+	position: absolute;
+	top: 10%;
+	left: 10%;
+    width: 10%;
+    font-size: 20px;
     background: lightpink;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 
-.timer-board {
+#player-two-score {
+	display: inline-block;
+	position: absolute;
+	top: 20%;
+	left: 10%;
+    width: 10%;
+    font-size: 20px;
+    background: lightpink;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+#timer {
     display: inline-block;
     font-size: 40px;
     background: gold;

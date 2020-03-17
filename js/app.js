@@ -3,54 +3,78 @@ console.log("project 1");
 
 class Mole {
     constructor() {
-
+    	const colors = ['red', 'orange', 'brown']
+    	const randNum = Math.floor(Math.random() * colors.length)
+    	this.color = colors[randNum]
+    	this.clicked = false
     }
 }
 
-
-
 const game = {
-		moles: document.querySelector('.mole'),
+		moles: [],
 		scoreBoard: document.querySelector('.score'),
         intervalID: null,
         timeElapsed: 0,
         timesUp: false,
         score: 0,
 
-        startTimer: function() {
-            this.printTimer()
-            this.intervalID = setInterval(() => {
-                this.timeElapsed++
-                this.printTimer()
-            	this.printValues()
-            }, 1000)
+        // startTimer: function() {
+        //     this.printTimer()
+        //     this.intervalID = setInterval(() => {
+        //         this.timeElapsed++
+        //         this.printTimer()
+        //     	this.printValues()
+        //     }, 1000)
+        // },
+
+        // stopTimer: function() {
+        //     clearInterval(this.intervalID)
+        // },
+
+        // printTimer: function() {
+        //     const seconds = this.timeElapsed
+        //     let mm = Math.floor(seconds / 60)
+        //     let ss = seconds - (mm * 60)
+        //     if (ss < 10) {
+        //         ss = "0" + ss
+        //     }
+        //     console.log(`${mm}:${ss}`);
+        //     this.printValues()
+        // },
+
+        // printValues: function() {
+        // 	const timer = $('#timer')
+        // 	timer.text($`{timeElapsed}`)
+        // },
+
+        // wack: function(event) {
+        // 	if(!timesUp) {
+        // 		scoreBoard.classList.add('add')
+        // 		score++
+        // 		scoreBoard.textContent = score
+        // 	}
+        // },
+
+        // checkValidWack: function($mole) {
+        // 	const indexOfMoleClicked = $mole.data('whichMole')
+        // 	const mole = this.moles[indexOfMoleClicked]
+        // 	if(this.mole === )
+        // },
+
+        createMoles: function() {
+        	for(let i = 0; i < 12; i++) {
+        		const ml = new Mole()
+        		this.moles.push(ml)
+        	}
+        	this.printMoles()
         },
 
-        stopTimer: function() {
-            clearInterval(this.intervalID)
-        },
-
-        printTimer: function() {
-            const seconds = this.timeElapsed
-            let mm = Math.floor(seconds / 60)
-            let ss = seconds - (mm * 60)
-            if (ss < 10) {
-                ss = "0" + ss
-            }
-            console.log(`${mm}:${ss}`);
-            this.printValues()
-        },
-
-        printValues: function() {
-        	const timer = $('#timer')
-        	timer.text($`{this.timeElapsed}`)
-        },
-
-        wack: function(event) {
-        	if(!timesUp) {
-        		scoreBoard.classList.add('add')
-        		score++
-        		scoreBoard.textContent = score
+        printMoles: function() {
+        	const $molesContainer = $('.moles')
+        	for(let i = 0; i < this.moles.length; i++) {
+        		const $div = $(`div data-which-mole="${i}"></div>`).addClass('mole')
+        		$div.css('background-color', this.moles[i].color)
+        		$molesContainer.append($div)
         	}
         },
 
@@ -59,6 +83,15 @@ const game = {
         	scoreBoard.classList.remove('add')
         }
     }
+
+
+
+// $('.moles').on('click', (event) => {
+// const $moleClicked = $(event.target)
+
+// game.checkValidWack($moleClicked)
+
+// })
 
 // this.moles.forEach(mole => {
 // 	mole.addEventListener('click', wack)
