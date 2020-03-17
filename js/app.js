@@ -2,48 +2,58 @@ console.log("project 1");
 
 const game = {
 
-	let scorePlayerOne = 0,
-	let scorePlayerTwo = 0,
-	let timerIntervalID = null,
-	let timeElapsed = 0,
+// 	scorePlayerOne = 0,
+// 	scorePlayerTwo = 0,
+// 	timerIntervalID = null,
+// 	timeElapsed = 0,
 
 
-	start: function() {
-	// start game/main timer -- the 30 second timer that each player's turn will have
-	// call next function -- should be "showMole"
+// 	start: function() {
+// 	// start game/main timer -- the 30 second timer that each player's turn will have
+// 	// call next function -- should be "showMole"
 
-	},
+// 	},
 
-	showMole: function() {
-	// mole image appears in random box in the container
-	// has to have it's own separate timer for how long the mole image should stay visable in it's current spot
-	// needs to disappear when event (click) happens on it (target)
-	// if user hits (clicks on the mole image), then it should just show another mole, and continue to until
-	// the player's turn timer expires (30 seconds)
-	// needs to call next function -- should be "change turns" or something
-	},
+// 	showMole: function() {
+// 	// mole image appears in random box in the container
+// 	// has to have it's own separate timer for how long the mole image should stay visable in it's current spot
+// 	// needs to disappear when event (click) happens on it (target)
+// 	// if user hits (clicks on the mole image), then it should just show another mole, and continue to until
+// 	// the player's turn timer expires (30 seconds)
+// 	// needs to call next function -- should be "change turns" or something
+// 	},
 
-	nextPlayersTurn: function() {
-	// calls showMole again... 
-	// can't do alerts, so need to figure out how to change turns without it
-	// should run the same way as the last turn
-	},
+// 	nextPlayersTurn: function() {
+// 	// calls showMole again... 
+// 	// can't do alerts, so need to figure out how to change turns without it
+// 	// should run the same way as the last turn
+// 	},
 
-	createSquares: function() {
+// 	createSquares: function() {
 
-	},
+// 	},
 
-	printSquares: function() {
+// 	printSquares: function() {
 
-	},
+// 	},
 
-	checkValidWack: function() {
+// 	checkValidWack: function() {
 
-	},
+// 	},
 
 	
+}
 
 
+  // listeners   ////
+
+
+const holes = document.querySelectorAll('.hole');
+const scoreBoard = document.querySelector('.score');
+const moles = document.querySelectorAll('.mole');
+const btnStart = document.querySelector('button');
+const startScreen = document.querySelector('.start-screen');
+const showScore = document.querySelector('.show-score');
 
 
 
