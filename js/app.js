@@ -11,18 +11,16 @@ class Mole {
 
 const game = {
 
-        // scorePlayerOne = 0,
-        // scorePlayerTwo = 0,
-        // timerIntervalID = null,
-        // timeElapsed = 0,
+
         intervalID: null,
-        timeElapsed: 359,
+        timeElapsed: 0,
 
         startTimer: function() {
-            this.printTime()
+            this.printTimer()
             this.intervalID = setInterval(() => {
                 this.timeElapsed++
-                this.printTime()
+                this.printTimer()
+            	this.printValues()
             }, 1000)
         },
 
@@ -38,17 +36,23 @@ const game = {
                 ss = "0" + ss
             }
             console.log(`${mm}:${ss}`);
+            this.printValues()
         },
 
-        start: function() {
-            score = 0
-            scoreBoard.textContent = score
-            timesOut = false
-            scoreBoard.classList.remove('add')
-            startScreen.classList.add('hide')
-            startTimer()
-            // showMole()
+        printValues: function() {
+        	const timer = $('#timer')
+        	timer.text($`{this.timeElapsed}`)
         }
+
+        // start: function() {
+        //     score = 0
+        //     scoreBoard.textContent = score
+        //     timesOut = false
+        //     scoreBoard.classList.remove('add')
+        //     startScreen.classList.add('hide')
+        //     startTimer()
+        //     // showMole()
+        // }
 
 // 	showMole: function() {
 // 	// mole image appears in random box in the container
@@ -90,13 +94,6 @@ const game = {
 
 // btnStart.addEventListener('click', start);
 
-
-// // holes = document.querySelectorAll('.hole')
-// scoreBoard = document.querySelector('.score')
-// // moles = document.querySelectorAll('.mole')
-// // btnStart = document.querySelector('button')
-// startScreen = document.querySelector('.start-screen')
-// // showScore = document.querySelector('.show-score')
 
 
 

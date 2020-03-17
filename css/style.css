@@ -47,17 +47,17 @@ h1 {
     background: lightpink;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 
-.timer {
+.timer-board {
     display: inline-block;
     font-size: 40px;
     background: gold;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     position: absolute;
     top: 10%;
-    left: 90%;
+    left: 80%;
 }
