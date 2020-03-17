@@ -28,43 +28,36 @@ h1 {
 }
 
 .game {
-	width: 600px;
-	height: 400px;
-	/*  display: flex;
+    width: 600px;
+    height: 400px;
+    /*  display: flex;
 	flex-wrap: wrap;
 	margin: 0 auto;*/
 }
 
 .score-board {
-	position: absolute;
-	top: 10%;
-	left: 10%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
 }
 
 .score {
-	display: inline-block;
-	font-size: 40px;
-	background: lightpink;
-	padding: 10px;
-	border-radius: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    font-size: 40px;
+    background: lightpink;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .timer {
-	display: inline-block;
-	font-size: 40px;
-	background: gold;
-	padding: 10px;
-	border-radius: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-	position: absolute;
-	top: 10%;
-	left: 90%;
+    display: inline-block;
+    font-size: 40px;
+    background: gold;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 10%;
+    left: 90%;
 }
-
-
-
-
-
-
-
