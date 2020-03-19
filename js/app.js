@@ -47,7 +47,6 @@ const game = {
             this.holes.push(ho)
         }
         this.printMoles()
-        this.startTimer()
     },
 
     printMoles: function() {
