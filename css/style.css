@@ -27,7 +27,7 @@ header {
     flex-wrap: wrap;
 }
 
-.moles div {
+.holes div {
     width: 20vh;
     height: 20vh;
     display: flex;
@@ -36,6 +36,7 @@ header {
     flex-wrap: wrap;
     margin: 2.5%;
 }
+
 
 /*need to get the grid of moles to stay 2 rows by 4 moles*/
 
@@ -55,6 +56,9 @@ header {
     border-radius: 10px;
     border: 5px solid gold;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+.mole {
+
 }
 
 /*

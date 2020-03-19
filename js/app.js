@@ -1,32 +1,57 @@
 console.log("project 1");
 
-class Mole {
-    constructor() {
-        const colors = ['red', 'pink']
-        const randNum = Math.floor(Math.random() * colors.length)
-        this.color = colors[randNum]
-        this.clicked = false
-    }
-    setClicked() {
-        this.clicked = true
-    }
-}
+// class Mole {
+//     constructor() {
+// // const colors = ['red']
+// this.color = colors
+// this.clicked = false
+// this.clickedColor = ['transparent']
+//     this.isHole = 
+// }
+// setClicked() {
+//     this.clicked = true
+//     }
+// }
 
-class Player {
-    constructor() {
-        this.score = score
-        this.turn = turn
+// class Player {
+//     constructor(name) {
+//     	this.name = name
+//         this.score = 0
+//         this.turn = turn
 
-    }
-}
+//     }
+// }
 
 class Hole {
     constructor() {
-        const colors = ['transparent']
+        const colors = ['pink']
+        this.color = colors
+        this.clicked = false
+        this.isMole = false
+    }
+
+    setClicked() {
         this.clicked = true
     }
-}
+    becomeMole() {
 
+
+
+        // if (this.isMole === false) {
+        //    	this.isMole = true
+        //    	$hole.css('color', "brown")
+        //    }
+        //if this.isMole ==== true --> change css to look like a mole
+
+    }
+    backToHole() {
+        //if this.isMole === true when this was clicked, change isMole back to false
+    }
+
+    // setClicked() {
+    // 	this.clicked = true
+    // }
+}
 
 const game = {
     score1: 0,
@@ -35,36 +60,49 @@ const game = {
     moles: [],
     holes: [],
     emptyHole: [],
-	intervalID: null,
-	timeElapsed: 0,
+    intervalID: null,
+    timeElapsed: 0,
 
-
-    createMoles: function() {
+    createHoles: function() {
         for (let i = 0; i < 8; i++) {
-            const mo = new Mole()
-            this.moles.push(mo)
+            // const mo = new Mole()
+            // this.moles.push(mo)
             const ho = new Hole()
             this.holes.push(ho)
         }
-        this.printMoles()
+        this.printHoles()
     },
 
-    printMoles: function() {
-        const $molesContainer = $('.moles')
-        for (let i = 0; i < this.moles.length; i++) {
-            const $div = $(`<div data-which-mole="${i}"></div>`).addClass('mole')
-            $div.css('background-color', this.moles[i].color)
-            $molesContainer.append($div)
-        }
-        this.showMole()
+    printHoles: function() {
+        const $holesContainer = $('.holes')
+        for (let i = 0; i < this.holes.length; i++) {
+            const $div = $(`<div data-which-hole="${i}"></div>`).addClass('hole')
+            $div.css('background-color', this.holes[i].color)
+            $holesContainer.append($div)
+
+    	}
+    	this.showHoles()
     },
 
-    checkValidWack: function($mole) {
-        const indexOfMoleClicked = $mole.data('whichMole')
-        const mole = this.moles[indexOfMoleClicked]
-        if (mole.clicked === false) {
-            mole.setClicked()
-            $mole.css('opacity', 0) // change this to lightgreen // do
+    showHoles: function() {
+        const hole1 = document.querySelectorAll('.hole1')
+        //create a mole class that is similar to the hole class but mole colored
+        //then change the class of hte hole to the class mole
+        setTimeout(() => {
+        	this.timeElapsed += 1
+            //this.showMole.hide()
+            console.log("this is timeElapsed\n", this.timeElapsed);
+            //change the mole back to a hole
+      	  }, 2000)
+    },
+
+
+    checkValidWack: function($hole) {
+        const indexOfHoleClicked = $hole.data('whichHole')
+        const hole = this.holes[indexOfHoleClicked]
+        if (hole.clicked === false) {
+            hole.setClicked()
+            $hole.css('background-color', "brown") // change this to lightgreen // do
             //display messagee hit!
         } else {
             console.log("bad");
@@ -72,20 +110,12 @@ const game = {
         }
     },
 
-    randomTime: function() {
-        Math.round(Math.random() * (999 - 333) + 333)
-    },
-
-
-    showMole: function() {
-        time = this.randomTime()
-    },
-
 }
 
-$('.moles').on('click', (event) => {
-    const $moleClicked = $(event.target)
-    game.checkValidWack($moleClicked)
+$('.holes').on('click', (event) => {
+    const $holeClicked = $(event.target)
+    game.checkValidWack($holeClicked)
+    console.log("this is the holeClicked\n", $holeClicked);
     // makes them disappear -- so works -- need to make them smash (another image?)
     // also need to add to the score
 
@@ -93,9 +123,77 @@ $('.moles').on('click', (event) => {
 
 $('.button').on('click', (event) => {
     const $btnStart = $(event.target)
-    game.createMoles($btnStart)
+    game.createHoles($btnStart)
     //need to make the button stop printing moles after clicked once
 })
+
+    // showMole: function(holes) {
+    //     const hole1 = document.querySelectorAll('.hole1')
+    //     //create a mole class that is similar to the hole class but mole colored
+    //     //then change the class of hte hole to the class mole
+    //     setTimeout(() => {
+    //     	this.timeElapsed += 1
+    //         //this.showMole.hide()
+    //         console.log("this is timeElapsed\n", this.timeElapsed);
+    //         //change the mole back to a hole
+    //     }, 5000)
+    // },
+
+   //  function
+   // shows mole
+   // sets a timeout and in the settimeout,
+   //   do the hide
+
+//    then pick one hole
+// and get show mole to work for it
+// showMole should take a parameter
+//(which hole) just get it working for one hole
+
+
+
+
+
+
+    // have a function that shows and then sets 
+    // a timeout and in the settimeout do the hide
+
+    // timeout: function() {
+    // 	const time = randomTime(333, 999)
+    // 	const hole = randomHole(holes)
+    // 	hole.classList.show()
+
+    // 	setTimeout(time) => {
+    // 	hole.classList.hide()
+    // 	if(timeUp === false) timeout()
+    // 	} time
+    // },
+
+ 
+
+    // showMole: function() {
+    // 	setTimeout(checkValidWack(clicked) {
+    // 		if(clicked === )
+    // 	})
+    // }),
+
+    // randomTime: function() {
+    //     Math.round(Math.random() * (999 - 333) + 333)
+    //     const time = randomTime(333, 999);
+    // const hole = randomHole(holes);
+    // const moleTime = game.setTimeout(printMoles) 
+    // },
+
+
+    //For this check out the difference b/w setTimeout and setInteval
+    //timer for game starts time going (up or down ur choice)
+    //the timer function loops over the holes
+    //if time reaches certain interval, or is like, divisible by 3 or something
+    //that's what changes the div currently being accessed by the loop into a mole
+    //you would call that by saying something like divName.isMole = true
+    //then the becomeMole method changes the CSS of that to 'brown' or whatever
+
+
+
 
 
 
