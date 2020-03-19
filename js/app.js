@@ -33,24 +33,24 @@ class Hole {
     setClicked() {
         this.clicked = true
     }
-    becomeMole() {
+    // becomeMole() {
 
 
 
-        // if (this.isMole === false) {
-        //    	this.isMole = true
-        //    	$hole.css('color', "brown")
-        //    }
-        //if this.isMole ==== true --> change css to look like a mole
+    //     // if (this.isMole === false) {
+    //     //    	this.isMole = true
+    //     //    	$hole.css('color', "brown")
+    //     //    }
+    //     //if this.isMole ==== true --> change css to look like a mole
 
-    }
-    backToHole() {
-        //if this.isMole === true when this was clicked, change isMole back to false
-    }
-
-    // setClicked() {
-    // 	this.clicked = true
     // }
+    // backToHole() {
+    //     //if this.isMole === true when this was clicked, change isMole back to false
+    // }
+
+    // // setClicked() {
+    // // 	this.clicked = true
+    // // }
 }
 
 const game = {
@@ -59,6 +59,7 @@ const game = {
     timeUp: false,
     moles: [],
     holes: [],
+    // holes1: [],
     emptyHole: [],
     intervalID: null,
     timeElapsed: 0,
@@ -76,33 +77,52 @@ const game = {
     printHoles: function() {
         const $holesContainer = $('.holes')
         for (let i = 0; i < this.holes.length; i++) {
-            const $div = $(`<div data-which-hole="${i}"></div>`).addClass('hole')
+            const $div = $(`<div id="${i}"></div>`).addClass('hole')
             $div.css('background-color', this.holes[i].color)
             $holesContainer.append($div)
-
     	}
-    	this.showHoles()
+    	console.log("we're in printHoles, about to show")
+    	this.show()
     },
 
-    showHoles: function() {
-        const hole1 = document.querySelectorAll('.hole1')
-        //create a mole class that is similar to the hole class but mole colored
-        //then change the class of hte hole to the class mole
-        setTimeout(() => {
-        	this.timeElapsed += 1
-            //this.showMole.hide()
-            console.log("this is timeElapsed\n", this.timeElapsed);
-            //change the mole back to a hole
-      	  }, 2000)
+    show: function() {
+        // grab all .hole with jQ
+        const $holes = $('.hole')
+        console.log($holes)
+        // get a random one
+        // for(let i = 0; i < $holes; i++) {
+	        // console.log("we're in the for loop")
+	        const randIndex = Math.floor(Math.random() * $holes.length)
+	        console.log(`${randIndex} is randHole`);
+	        // add the class to it
+	        $randHole = $(`#${randIndex}`)
+	        console.log($randHole)
+	        $randHole.addClass('mole')
+	        $holes.append($randHole)
+	        // $('$randHole').addClass('mole')
+
+        // }
+
+        // setTimeout(() => {
+        	
+
+            //change the mole back to a hole -- remove the class from it
+
+
+            // call show again here (recursion)
+
+
+      	 // }, 2000)
     },
 
 
     checkValidWack: function($hole) {
-        const indexOfHoleClicked = $hole.data('whichHole')
+    	console.log($hole); // this is whatever hole i click (the number)
+        const indexOfHoleClicked = $hole
         const hole = this.holes[indexOfHoleClicked]
         if (hole.clicked === false) {
             hole.setClicked()
-            $hole.css('background-color', "brown") // change this to lightgreen // do
+            //$hole.css('background-color', "brown") // change this to lightgreen // do
             //display messagee hit!
         } else {
             console.log("bad");
@@ -114,8 +134,8 @@ const game = {
 
 $('.holes').on('click', (event) => {
     const $holeClicked = $(event.target)
-    game.checkValidWack($holeClicked)
     console.log("this is the holeClicked\n", $holeClicked);
+    game.checkValidWack($holeClicked)
     // makes them disappear -- so works -- need to make them smash (another image?)
     // also need to add to the score
 
