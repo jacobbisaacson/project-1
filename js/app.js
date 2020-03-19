@@ -20,12 +20,21 @@ class Player {
     }
 }
 
+class Hole {
+    constructor() {
+        const colors = ['transparent']
+        this.clicked = true
+    }
+}
+
 
 const game = {
     score1: 0,
     score2: 0,
     timeUp: false,
     moles: [],
+    holes: [],
+    emptyHole: [],
     // holes: [],
 
 
@@ -33,6 +42,8 @@ const game = {
         for (let i = 0; i < 8; i++) {
             const mo = new Mole()
             this.moles.push(mo)
+            const ho = new Hole()
+            this.holes.push(ho)
         }
         this.printMoles()
     },
@@ -44,6 +55,7 @@ const game = {
             $div.css('background-color', this.moles[i].color)
             $molesContainer.append($div)
         }
+        this.showMole()
     },
 
     checkValidWack: function($mole) {
@@ -51,15 +63,24 @@ const game = {
         const mole = this.moles[indexOfMoleClicked]
         if (mole.clicked === false) {
             mole.setClicked()
-            $mole.css('opacity', 0)
+            $mole.css('opacity', 0) // change this to lightgreen // do
             //display messagee hit!
         } else {
             console.log("bad");
             // display message miss!
         }
-    }
-}
+    },
 
+    randomTime: function() {
+        Math.round(Math.random() * (999 - 333) + 333)
+    },
+
+
+    showMole: function() {
+        time = this.randomTime()
+    }
+
+}
 
 $('.moles').on('click', (event) => {
     const $moleClicked = $(event.target)
@@ -74,6 +95,25 @@ $('.button').on('click', (event) => {
     game.createMoles($btnStart)
     //need to make the button stop printing moles after clicked once
 })
+
+
+
+// to do's // 
+// 1. get timer working
+// 2. print timer in the time box
+// 3. get scores to add and print on hits
+// 4. stop start button from printing more moles when clicked again
+// 5. stop the issue with clicking on a non-mole space
+// 6. MAKE MOLES APPEAR RANDOMLY AT INTERVAL
+// 7. MAKE MOLES DISAPPEAR AFTER APPEARING
+// 8. GET CLICKING WORKING -- possibly just turning the moles to brown when they're clicked
+
+// questions for Reuben:
+// 1. what am i doing with classes?  i keep thinking something different... players, moles, holes, etc
+// 2. can i add the random appearances function to the classes?  why can't i add it to printMoles?
+// 3. cant find how we figured out clicking on a blank space in the grid... does it even matter if 
+// it still works?
+// 4. 
 
 
 
