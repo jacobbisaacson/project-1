@@ -35,7 +35,8 @@ const game = {
     moles: [],
     holes: [],
     emptyHole: [],
-    // holes: [],
+	intervalID: null,
+	timeElapsed: 0,
 
 
     createMoles: function() {
@@ -46,6 +47,7 @@ const game = {
             this.holes.push(ho)
         }
         this.printMoles()
+        this.startTimer()
     },
 
     printMoles: function() {
@@ -78,7 +80,7 @@ const game = {
 
     showMole: function() {
         time = this.randomTime()
-    }
+    },
 
 }
 
@@ -99,8 +101,6 @@ $('.button').on('click', (event) => {
 
 
 // to do's // 
-// 1. get timer working
-// 2. print timer in the time box
 // 3. get scores to add and print on hits
 // 4. stop start button from printing more moles when clicked again
 // 5. stop the issue with clicking on a non-mole space

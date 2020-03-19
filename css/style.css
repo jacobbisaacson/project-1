@@ -96,7 +96,7 @@ header {
 /*use transform: scale*/
 /*transition: background 0.5s ease-in-out, transform 0.5s ease-in-out*/
 
-#timer {
+/*#timer {
     display: inline-block;
     font-size: 40px;
     background: gold;
@@ -106,4 +106,4 @@ header {
     position: absolute;
     top: 10%;
     left: 80%;
-}
+}*/
